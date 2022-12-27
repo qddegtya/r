@@ -1,0 +1,23 @@
+{
+  "name": "@a-reader/fav",
+  "version": "1.0.0",
+  "description": "@a-reader/fav",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qddegtya/r.git"
+  },
+  "keywords": [
+    "reader",
+    "rss"
+  ],
+  "author": "xiaoa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/qddegtya/r/issues"
+  },
+  "homepage": "https://github.com/qddegtya/r#readme"
+}
