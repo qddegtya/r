@@ -8,4 +8,4 @@
 
 ### Glitch
 
-[🐝 A bee for FAV ❤](http://a-bee-for-fav-fans.glitch.me/)
+[🐝 A bee for FAV ❤](https://bee-readers.xiaoa.name/)
