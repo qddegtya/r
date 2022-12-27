@@ -1,7 +1,7 @@
 {
-  "name": "@a-reader/fav",
+  "name": "@a-bee/fav-fans",
   "version": "1.0.0",
-  "description": "@a-reader/fav",
+  "description": "🐝 A bee for FAV fans.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
