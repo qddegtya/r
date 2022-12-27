@@ -4,7 +4,7 @@
 
 ### Preview
 
-![🐝 A bee for FAV ❤](https://raw.githubusercontent.com/qddegtya/r/main/packages/bee-for-fav-fans/bee.png)
+![🐝 A bee for FAV ❤](https://raw.githubusercontent.com/qddegtya/r/main/packages/bee-for-fav-fans/media/bee.png)
 
 ### Glitch
 
