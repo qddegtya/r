@@ -1,10 +1,20 @@
-### About
-
-> 🐝 A bee for fav fans.
-
-### Preview
-
-![🐝 A bee for fav fans](https://raw.githubusercontent.com/qddegtya/r/main/packages/bee-for-fav-fans/media/bee.png)
+<h1 align="center">
+  <br>
+  <br>
+  <br>
+	<p style="font-size: 64px;">🐝 Bee</p>
+  <br>
+  <br>
+  <br>
+</h1>
+<p align="center">
+<em>
+Reading is the ladder of human progress.
+</em>
+<br>
+<br>
+<img src="https://raw.githubusercontent.com/qddegtya/r/main/packages/bee-for-fav-fans/media/bee.png" alt="🐝 A bee for fav fans">
+</p>
 
 ### Glitch
 
