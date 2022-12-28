@@ -2,7 +2,7 @@
   <br>
   <br>
   <br>
-	<span style="font-size: 256px;">🐝 Bee</span>
+	<p style="font-size: 64px;">[Bee] = (🐝 -> 📚)</p>
   <br>
   <br>
   <br>
@@ -11,7 +11,7 @@
 <br>
 <br>
 <em>
-📚 Reading is the ladder of human progress.
+Reading is the ladder of human progress.
 </em>
 <br>
 <br>
