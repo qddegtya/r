@@ -16,9 +16,9 @@ Reading is the ladder of human progress.
 <br>
 <br>
 <br>
-<img src="https://raw.githubusercontent.com/qddegtya/r/main/packages/bee-for-fav-fans/media/bee.png" alt="🐝 A bee for fav fans">
+<img src="https://raw.githubusercontent.com/qddegtya/r/main/packages/bee-site/media/bee.png" alt="🐝 A bee site for readers">
 </p>
 
 ### Glitch
 
-[🐝 A bee for fav fans](https://r.xiaoa.name/)
+[🐝 A bee site for readers](https://r.xiaoa.name/)
