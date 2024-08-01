@@ -1,8 +1,8 @@
 {
-  "name": "a-bee",
+  "name": "@a-bee/github-robot",
   "version": "1.0.0",
   "private": true,
-  "description": "🐝 A bee for github repos.",
+  "description": "🐝 A bee for content generating.",
   "author": "xiaoa",
   "license": "MIT",
   "homepage": "https://github.com/qddegtya/r/packages/robots/a-bee#readme",
