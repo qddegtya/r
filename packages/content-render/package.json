@@ -1,5 +1,5 @@
 {
-  "name": "@a-bee/content-render",
+  "name": "@atools/r-content-render",
   "version": "1.0.0",
   "description": "💅 A render service for generated content.",
   "main": "index.js",
