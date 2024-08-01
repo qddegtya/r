@@ -1,3 +1,3 @@
 ### About
 
-> 📕 Reading is the ladder of human progress.
+> 🐝 A `C(Collect) -> T(Transform) -> P(Publish)` automation workflow for content creator.
