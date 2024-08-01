@@ -1,3 +1,3 @@
 ### About
 
-> 🌍 website for a-bee.
+> 🌍 website for R.
