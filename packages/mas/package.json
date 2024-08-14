@@ -1,4 +1,7 @@
 {
+  "name": "@atools/r-mas",
+  "version": "1.0.0",
+  "description": "🤖️ A multi agent system for content creator.",
   "scripts": {
     "build": "./node_modules/.bin/tsc -p tsconfig.json"
   },

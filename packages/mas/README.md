@@ -1,3 +1,3 @@
 ### About
 
-> Multi-Agent System Mode.
+> 🤖️ A multi agent system for content creator.
