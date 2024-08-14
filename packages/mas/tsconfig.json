@@ -1,0 +1,17 @@
+{
+    "compileOnSave": true,
+    "compilerOptions": {
+        "strict": true,
+        "module": "commonjs",
+        "target": "ES2015",
+        "noImplicitAny": false,
+        "outDir": "./lib",
+        "rootDir": "./src",
+        "sourceMap": false,
+        "forceConsistentCasingInFileNames": true,
+        "pretty": true
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}
