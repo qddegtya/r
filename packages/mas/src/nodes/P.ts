@@ -9,3 +9,5 @@ class PublishAgent extends TransformNode {
     
   }
 }
+
+export default PublishAgent;

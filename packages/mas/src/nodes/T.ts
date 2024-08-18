@@ -9,3 +9,5 @@ class TransformAgent extends TransformNode {
     
   }
 }
+
+export default TransformAgent;
