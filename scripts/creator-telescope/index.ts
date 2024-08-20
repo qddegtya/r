@@ -1,8 +1,8 @@
 // TODO
 import { ReadableNode, WriteableNode, Port, Flow } from '@hlang-org/runtime';
-import C from '../../mas/src/nodes/C';
-import T from '../../mas/src/nodes/T';
-import P from '../../mas/src/nodes/P';
+import C from '../../packages/mas/src/nodes/C';
+import T from '../../packages/mas/src/nodes/T';
+import P from '../../packages/mas/src/nodes/P';
 
 // Start
 class StartNode extends ReadableNode {
