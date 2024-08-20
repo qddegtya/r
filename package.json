@@ -1,0 +1,17 @@
+{
+  "name": "@atools/r",
+  "version": "1.0.0",
+  "description": "> 🐝 A `C(Collect) -> T(Transform) -> P(Publish)` automation workflow for content creator.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "xiaoa",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^22.4.1",
+    "ts-node": "^10.9.2",
+    "tslib": "^2.6.3",
+    "typescript": "^5.5.4"
+  }
+}
