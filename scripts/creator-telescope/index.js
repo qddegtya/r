@@ -19,6 +19,24 @@ class StartNode extends ReadableNode {
 
   _read($o) {
     $o("out").send("https://www.builder.io/m/explainers/composable-dxp");
+
+    setTimeout(() => {
+      this.throw(new Error("error"));
+    }, 10000);
+  }
+}
+
+class GlobalExceptionHandlerNode extends WriteableNode {
+  constructor(opt) {
+    super(opt);
+
+    Port.I("in").attach(this);
+  }
+
+  _write($i) {
+    $i("in").receive((error) => {
+      console.log(error);
+    });
   }
 }
 
@@ -39,10 +57,13 @@ class EndNode extends WriteableNode {
 
 const $startNode = new StartNode({});
 const $endNode = new EndNode({});
+const $globalExceptionHandlerNode = new GlobalExceptionHandlerNode({});
 const $c = new C({});
 
 $startNode.O("out").connect($c.I("url"));
 $c.O("post").connect($endNode.I("in"));
+
+$startNode.E().connect($globalExceptionHandlerNode.I("in"));
 
 const flow = new Flow({});
 
