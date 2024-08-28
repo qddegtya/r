@@ -11,14 +11,16 @@ class CollectAgent extends TransformNode {
   }
 
   _transform($i: any, $o: any): void {
+    console.log('--- 🐝 CollectAgent ---');
+
     const piscina = new Piscina({
       filename: path.resolve(__dirname, "../workers/read-webpage.js"),
     });
-    
-    $i("url").receive((url) => {
+
+    $i("url").receive(async (url) => {
       // dispatch job to piscina
       // with default thread pool config
-      const post = piscina.run({ url });
+      const post = await piscina.run({ url });
       $o("post").send(post);
     });
   }
