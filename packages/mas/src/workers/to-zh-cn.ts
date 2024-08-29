@@ -1,28 +1,27 @@
-const OpenAI = require("openai");
-const fs = require("fs");
+import OpenAI from "openai";
+import fs from "node:fs";
+import path from "node:path";
+
+const cwd = process.cwd();
 
 const client = new OpenAI({
-  apiKey: "",
+  apiKey: "sk-mXZ4LVimkY44kYXjxhyy27ti3Wn8T88S1yh2HBPjCmpsOhQ5",
   baseURL: "https://api.moonshot.cn/v1",
 });
 
 export default async ({ post }) => {
-  await fs.writeFileSync("./tmp.md", post, {
+  const TMP_MD_FILE = path.join(cwd, "tmp.md");
+
+  await fs.writeFileSync(TMP_MD_FILE, post, {
     encoding: "utf-8",
   });
 
   let file_object = await client.files.create({
     file: fs.createReadStream("./tmp.md"),
-    purpose: "file-extract",
+    purpose: "file-extract" as any,
   });
 
-  // 获取结果
-  // file_content = client.files.retrieve_content(file_id=file_object.id)
-  // 注意，之前 retrieve_content api 在最新版本标记了 warning, 可以用下面这行代替
-  // 如果是旧版本，可以用 retrieve_content
   let file_content = await (await client.files.content(file_object.id)).text();
-
-  // 把它放进请求中
   let messages = [
     {
       role: "system",
@@ -41,11 +40,14 @@ export default async ({ post }) => {
 
   const completion = await client.chat.completions.create({
     model: "moonshot-v1-128k",
-    messages: messages,
+    messages: messages as any,
     temperature: 0.3,
   });
 
   const ret = completion.choices[0].message.content;
+
+  // delete tmp md file
+  await fs.unlinkSync(TMP_MD_FILE);
 
   return ret;
 };
