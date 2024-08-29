@@ -59,11 +59,13 @@ const $startNode = new StartNode({});
 const $endNode = new EndNode({});
 const $globalExceptionHandlerNode = new GlobalExceptionHandlerNode({});
 const $c = new C({});
+const $t = new T({});
 
 $startNode.O("out").connect($c.I("url"));
-$c.O("post").connect($endNode.I("in"));
+$c.O("post").connect($t.I("post"));
+$t.O("post").connect($endNode.I("in"));
 
-$startNode.E().connect($globalExceptionHandlerNode.I("in"));
+// $startNode.E().connect($globalExceptionHandlerNode.I("in"));
 
 const flow = new Flow({});
 

@@ -11,13 +11,13 @@ class TransformAgent extends TransformNode {
   }
 
   _transform($i: any, $o: any): void {
-    console.log("--- 🐝 TransformAgent ---");
-
-    const piscina = new Piscina({
-      filename: path.resolve(__dirname, "../workers/to-zh-cn.ts"),
-    });
-
     $i("post").receive(async (post) => {
+      console.log("--- 🐝 TransformAgent receive one task ---");
+      
+      const piscina = new Piscina({
+        filename: path.resolve(__dirname, "../workers/to-zh-cn.js"),
+      });
+
       // dispatch job to piscina
       // with default thread pool config
       const zhCnPost = await piscina.run({ post });
