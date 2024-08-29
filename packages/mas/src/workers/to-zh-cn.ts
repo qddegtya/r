@@ -5,7 +5,7 @@ import path from "node:path";
 const cwd = process.cwd();
 
 const client = new OpenAI({
-  apiKey: "sk-mXZ4LVimkY44kYXjxhyy27ti3Wn8T88S1yh2HBPjCmpsOhQ5",
+  apiKey: "",
   baseURL: "https://api.moonshot.cn/v1",
 });
 
