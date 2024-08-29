@@ -18,7 +18,7 @@ class StartNode extends ReadableNode {
   }
 
   _read($o) {
-    $o("out").send("https://www.builder.io/m/explainers/composable-dxp");
+    $o("out").send(process.env.POST_URL || "");
 
     setTimeout(() => {
       this.throw(new Error("error"));

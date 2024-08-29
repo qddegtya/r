@@ -1,53 +1,60 @@
 import OpenAI from "openai";
-import fs from "node:fs";
-import path from "node:path";
-
-const cwd = process.cwd();
+import { marked } from "marked";
+import TurndownService from "turndown";
 
 const client = new OpenAI({
-  apiKey: "",
+  apiKey: process.env.MOONSHOT_API_KEY || "",
   baseURL: "https://api.moonshot.cn/v1",
 });
 
+const sleep = (ms) => {
+  return new Promise((a, _) => {
+    setTimeout(a, ms);
+  });
+};
+
 export default async ({ post }) => {
-  const TMP_MD_FILE = path.join(cwd, "tmp.md");
+  const translations = [] as any;
+  const tokens = marked.lexer(post);
 
-  await fs.writeFileSync(TMP_MD_FILE, post, {
-    encoding: "utf-8",
+  marked.walkTokens(tokens, (token) => {
+    if (token.type === "text") {
+      translations.push(async () => {
+        const completion = await client.chat.completions.create({
+          model: "moonshot-v1-128k",
+          messages: [
+            {
+              role: "system",
+              content:
+                "You will be provided with a sentence in English, and your task is to translate it into Chinese.",
+            },
+            {
+              role: "user",
+              content: token.text,
+            },
+          ],
+          temperature: 0.3,
+        });
+
+        const ret = completion.choices[0].message.content;
+
+        console.log(`translation result: ${ret}`);
+
+        // token.raw = ret;
+        token.text = ret;
+      });
+    }
   });
 
-  let file_object = await client.files.create({
-    file: fs.createReadStream("./tmp.md"),
-    purpose: "file-extract" as any,
-  });
+  // rate control
+  for (let translationTask of translations) {
+    await translationTask();
+  }
 
-  let file_content = await (await client.files.content(file_object.id)).text();
-  let messages = [
-    {
-      role: "system",
-      content: "你是 Kimi 翻译助手，你擅长内容翻译",
-    },
-    {
-      role: "system",
-      content: file_content,
-    },
-    {
-      role: "user",
-      content:
-        "现在，你接收到的输入是一份 Markdown 格式的文件，请仅仅将该文档中的内容翻译成中文，这意味着你必须严格保留原有的 Markdown 格式进行最后的结果输出",
-    },
-  ];
+  const html = marked.parser(tokens);
 
-  const completion = await client.chat.completions.create({
-    model: "moonshot-v1-128k",
-    messages: messages as any,
-    temperature: 0.3,
-  });
+  const turndownService = new TurndownService();
+  const markdown = await turndownService.turndown(html);
 
-  const ret = completion.choices[0].message.content;
-
-  // delete tmp md file
-  await fs.unlinkSync(TMP_MD_FILE);
-
-  return ret;
+  return markdown;
 };
