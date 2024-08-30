@@ -64,6 +64,7 @@ $startNode.O("out").connect($c.I("url"));
 $c.O("post").connect($t.I("post"));
 $t.O("post").connect($endNode.I("in"));
 
+$c.O("post").connect($endNode.I("in"));
 $startNode.E().connect($globalExceptionHandlerNode.I("in"));
 
 const flow = new Flow({});
