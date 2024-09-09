@@ -45,7 +45,7 @@ export default async ({ post }) => {
         token.text = ret;
 
         // 更新上下文
-        context += ret;
+        context += ret + " ";
       });
     }
   });
