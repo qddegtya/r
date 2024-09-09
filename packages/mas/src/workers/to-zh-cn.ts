@@ -16,6 +16,7 @@ const sleep = (ms) => {
 export default async ({ post }) => {
   const translations = [] as any;
   const tokens = marked.lexer(post);
+  let context = "";
 
   marked.walkTokens(tokens, (token) => {
     if (token.type === "text") {
@@ -26,14 +27,14 @@ export default async ({ post }) => {
             {
               role: "system",
               content:
-                "You will be provided with a sentence in English, and your task is to translate it into Chinese.",
+                "你是一个专业的翻译助手，请将给定的英文文本翻译成中文。保持原文的语气和风格，确保翻译的准确性和流畅性。",
             },
             {
               role: "user",
-              content: token.text,
+              content: `请翻译以下文本，并参考之前的上下文：\n\n上下文：${context}\n\n待翻译文本：${token.text}`,
             },
           ],
-          temperature: 0.3,
+          temperature: 0.3
         });
 
         const ret = completion.choices[0].message.content;
@@ -42,6 +43,9 @@ export default async ({ post }) => {
 
         // token.raw = ret;
         token.text = ret;
+
+        // 更新上下文
+        context += ret;
       });
     }
   });
